@@ -4,7 +4,19 @@ server:
 spring:
   application:
     name: users-service
-
+  datasource:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driverClassName: com.mysql.jdbc.Driver
+    url: ${DATABASE_URL}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
 eureka:
   client:
     serviceUrl:
