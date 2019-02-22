@@ -11,10 +11,11 @@ spring:
     url: ${DATABASE_URL}
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+#        dialect: org.hibernate.dialect.MySQL57Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
     show-sql: true
 eureka:
