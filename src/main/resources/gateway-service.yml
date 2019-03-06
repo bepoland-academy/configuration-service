@@ -1,4 +1,4 @@
-server:
+aserver:
   port: ${SERVER_PORT:8080}
 
 spring:
@@ -20,6 +20,7 @@ spring:
               - PUT
               - DELETE
               - OPTIONS
+              - PATCH
       routes:
         - id: users-service
           uri: lb://users-service
@@ -27,6 +28,12 @@ spring:
             - Path=/users/**
           filters:
             - RewritePath=/users/(?<path>.*), /$\{path}
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/auth/(?<path>.*), /$\{path}
 
 eureka:
   client:
