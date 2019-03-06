@@ -1,6 +1,7 @@
 aserver:
   port: ${SERVER_PORT:8080}
 
+
 spring:
   application:
     name: gateway-service
