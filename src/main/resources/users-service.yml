@@ -1,6 +1,5 @@
 server:
-  port: ${SERVER_PORT:8086}
-  use-forward-headers: true
+  port: ${SERVER_PORT:8080}
 
 spring:
   application:
@@ -8,11 +7,10 @@ spring:
   liquibase:
     change-log: classpath:db/changelog.xml
   datasource:
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:secret}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: ${DATABASE_URL:jdbc:mysql://localhost:3306/USERS_DB?createDatabaseIfNotExist=true}
-  #    initialization-mode: always
+    url: ${DATABASE_URL}
   jpa:
     hibernate:
       ddl-auto: none

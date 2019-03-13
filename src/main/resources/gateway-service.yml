@@ -48,13 +48,13 @@ spring:
           filters:
             - RewritePath=/auth/(?<path>.*), /$\{path}
         - id: projects-service
-          uri: lb://project-service
+          uri: lb://projects-service
           predicates:
             - Path=/projects/**
           filters:
             - RewritePath=/projects/(?<path>.*), /projects/$\{path}
         - id: projects-service-clients
-          uri: lb://project-service
+          uri: lb://projects-service
           predicates:
             - Path=/clients/**
           filters:

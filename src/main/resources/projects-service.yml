@@ -1,17 +1,16 @@
 server:
-  port: ${SERVER_PORT:8087}
+  port: ${SERVER_PORT:8080}
 
 spring:
   application:
-    name: project-service
+    name: projects-service
   liquibase:
     change-log: classpath:db/changelog.xml
   datasource:
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:secret}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: ${DATABASE_URL:jdbc:mysql://localhost:3336/PROJECTS_DB?createDatabaseIfNotExist=true&serverTimezone=UTC}
-  #    initialization-mode: always
+    url: ${DATABASE_URL}
   jpa:
     hibernate:
       ddl-auto: none
@@ -28,6 +27,3 @@ jwt:
   config:
     expirationTime: 3600000
     secret: 3bJAp`]4|kzB?~8+
-
-authentication:
-  publicUrls: "/login,/password"
