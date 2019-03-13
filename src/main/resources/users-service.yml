@@ -1,5 +1,6 @@
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${SERVER_PORT:8086}
+  use-forward-headers: true
 
 spring:
   application:
@@ -20,6 +21,20 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: false
     show-sql: true
+  mail:
+    #Login: beontime@gmail.com
+    #Pass: Qazwsx12#
+    host: smtp.gmail.com
+    port: 587
+    username: beontime.test
+    password: Qazwsx12#
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 eureka:
   client:
     serviceUrl:
@@ -27,8 +42,8 @@ eureka:
 
 jwt:
   config:
-    expirationTime: 1200000
+    expirationTime: 3600000
     secret: 3bJAp`]4|kzB?~8+
 
 authentication:
-  publicUrls: "/login"
+  publicUrls: "/login,/password"
