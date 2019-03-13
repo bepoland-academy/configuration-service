@@ -10,8 +10,6 @@ spring:
       discovery:
         locator:
           enabled: true
-#      x-forwarded:
-#          enabled:
       globalcors:
         cors-configurations:
           '[/**]':
