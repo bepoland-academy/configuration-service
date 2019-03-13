@@ -47,6 +47,18 @@ spring:
             - Path=/auth/**
           filters:
             - RewritePath=/auth/(?<path>.*), /$\{path}
+        - id: projects-service
+          uri: lb://project-service
+          predicates:
+            - Path=/projects/**
+          filters:
+            - RewritePath=/projects/(?<path>.*), /projects/$\{path}
+        - id: projects-service-clients
+          uri: lb://project-service
+          predicates:
+            - Path=/clients/**
+          filters:
+            - RewritePath=/clients/(?<path>.*), /clients/$\{path}
 
 eureka:
   client:
