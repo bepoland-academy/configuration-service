@@ -1,5 +1,5 @@
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${SERVER_PORT:8087}
 
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
     change-log: classpath:db/changelog.xml
   datasource:
     username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:ADMIN}
+    password: ${DB_PASSWORD:secret}
     driverClassName: com.mysql.cj.jdbc.Driver
     url: ${DATABASE_URL:jdbc:mysql://localhost:3336/PROJECTS_DB?createDatabaseIfNotExist=true&serverTimezone=UTC}
   #    initialization-mode: always
