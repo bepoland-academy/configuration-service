@@ -10,6 +10,8 @@ spring:
       discovery:
         locator:
           enabled: true
+#      x-forwarded:
+#          enabled:
       globalcors:
         cors-configurations:
           '[/**]':
@@ -23,12 +25,24 @@ spring:
               - OPTIONS
               - PATCH
       routes:
-        - id: users-service
+        - id: users-service-users
           uri: lb://users-service
           predicates:
             - Path=/users/**
           filters:
-            - RewritePath=/users/(?<path>.*), /$\{path}
+            - RewritePath=/users/(?<path>.*), /users/$\{path}
+        - id: users-service-departments
+          uri: lb://users-service
+          predicates:
+            - Path=/departments/**
+          filters:
+            - RewritePath=/departments/(?<path>.*), /departments/$\{path}
+        - id: users-service-password
+          uri: lb://users-service
+          predicates:
+            - Path=/password/**
+          filters:
+            - RewritePath=/password/(?<path>.*), /password/$\{path}
         - id: authentication-service
           uri: lb://authentication-service
           predicates:
