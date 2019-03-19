@@ -26,37 +26,37 @@ spring:
         - id: users-service-users
           uri: lb://users-service
           predicates:
-            - Path=/users/**
+            - Path=/gateway/users/**
           filters:
             - RewritePath=/users/(?<path>.*), /users/$\{path}
         - id: users-service-departments
           uri: lb://users-service
           predicates:
-            - Path=/departments/**
+            - Path=/gateway/departments/**
           filters:
             - RewritePath=/departments/(?<path>.*), /departments/$\{path}
         - id: users-service-password
           uri: lb://users-service
           predicates:
-            - Path=/password/**
+            - Path=/gateway/password/**
           filters:
             - RewritePath=/password/(?<path>.*), /password/$\{path}
         - id: authentication-service
           uri: lb://authentication-service
           predicates:
-            - Path=/auth/**
+            - Path=/gateway/auth/**
           filters:
             - RewritePath=/auth/(?<path>.*), /$\{path}
         - id: projects-service
           uri: lb://projects-service
           predicates:
-            - Path=/projects/**
+            - Path=/gateway/projects/**
           filters:
             - RewritePath=/projects/(?<path>.*), /projects/$\{path}
         - id: projects-service-clients
           uri: lb://projects-service
           predicates:
-            - Path=/clients/**
+            - Path=/gateway/clients/**
           filters:
             - RewritePath=/clients/(?<path>.*), /clients/$\{path}
 
