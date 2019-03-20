@@ -45,3 +45,6 @@ jwt:
 
 authentication:
   publicUrls: "/login,/password"
+
+administration:
+  email: "beontime.test@gmail.com"
