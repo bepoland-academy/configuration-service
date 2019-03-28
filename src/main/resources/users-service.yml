@@ -48,3 +48,5 @@ authentication:
 
 administration:
   email: "beontime.test@gmail.com"
+
+api-prefix: "http://beontime.be-academy.pl/gateway"
