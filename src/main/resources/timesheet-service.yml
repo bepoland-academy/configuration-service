@@ -29,3 +29,6 @@ jwt:
     secret: 3bJAp`]4|kzB?~8+
 
 api-prefix: "http://beontime.be-academy.pl/gateway"
+
+authentication:
+  publicUrls: "/timeEntry/projectExist"
