@@ -71,6 +71,12 @@ spring:
             - Path=/managers/**
           filters:
             - RewritePath=/managers/(?<path>.*), /managers/$\{path}
+        - id: timesheet-service-project-exist
+          uri: lb://timesheet-service
+          predicates:
+            - Path=/timeEntry/**
+          filters:
+            - RewritePath=/timeEntry/(?<path>.*), /timeEntry/$\{path}
 
 eureka:
   client:
