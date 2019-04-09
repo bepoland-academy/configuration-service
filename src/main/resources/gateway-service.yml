@@ -59,6 +59,12 @@ spring:
             - Path=/clients/**
           filters:
             - RewritePath=/clients/(?<path>.*), /clients/$\{path}
+        - id: projects-service-roles
+          uri: lb://projects-service
+          predicates:
+            - Path=/roles/**
+          filters:
+            - RewritePath=/roles/(?<path>.*), /roles/$\{path}
         - id: timesheet-service-consultants
           uri: lb://timesheet-service
           predicates:
